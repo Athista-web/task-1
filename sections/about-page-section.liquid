@@ -1,0 +1,52 @@
+<style>
+.about-page-wrapper{
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+.about-page-wrapper h1{
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.about-page-wrapper p{
+    font-size: 18px;
+    line-height: 1.7;
+}
+</style>
+
+<div class="about-page-wrapper">
+<h1>{{ page.title }}</h1>
+
+<div class="page-content">
+{{ page.content }}
+</div>
+
+<h2>{{ section.settings.heading}}</h2>
+
+<p>{{ section.settings.description }}</p>
+</div>
+
+
+
+{% schema %}
+{
+    "name":"About Page Section",
+    "settings":[
+        {
+            "type":"text",
+            "id":"heading",
+            "label":"Heading",
+            "default":"About Our Store"
+        },
+        {
+            "type":"textarea",
+            "id":"description",
+            "label":"Description",
+            "default":"Write something about your brand."
+        }
+    ]
+}
+{% endschema %}

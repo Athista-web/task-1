@@ -1,0 +1,77 @@
+<section class="hero-banner" style="
+  background-image: url('{{ section.settings.bg_image | img_url: 'master' }}');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px;
+">
+  <div class="hero-content" style="text-align: {{ section.settings.text_align }};">
+
+    {% if section.settings.heading != blank %}
+      <h1>{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <p>{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    {% if section.settings.btn_text != blank %}
+      <a href="{{ section.settings.btn_link }}" class="hero-btn">
+        {{ section.settings.btn_text }}
+      </a>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero-Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading Text",
+      "default": "Its your Fashion Desire"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading Text",
+      "default": "Just one step, before move into other"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Order Now"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero-Banner",
+      "category": "Banner"
+    }
+  ]
+}
+{% endschema %}
